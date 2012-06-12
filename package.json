@@ -16,7 +16,6 @@
   , "dependencies": {
         "squire": ">=0.0.1"
       , "optparse": "1.0.3"
-      , "redis": "0.7.1"
     }
   , "directories": {"lib": "./src"}
 }

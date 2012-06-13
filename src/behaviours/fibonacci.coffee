@@ -1,17 +1,20 @@
-# Calculates the nth fibonacci number. Squire's quite clever you know.
+# Description:
+#   Calculates the nth fibonacci number. Squire's quite clever you know.
 #
-# From https://gist.github.com/1032685
+# Commands:
+#   fibonacci <n> - Calculates nth fibonacci number
 #
-# fibonacci <n> - Calculates nth fibonacci number
+# Notes:
+#   From https://gist.github.com/1032685.
 
 module.exports = (squire) ->
 
   bits = (n) ->
-  (
-    while n > 0
-      [n, bit] = divMod n, 2
-      bit
-  ).reverse()
+    (
+      while n > 0
+        [n, bit] = divMod n, 2
+        bit
+    ).reverse()
 
   divMod = (x, y) ->
     [(q = Math.floor x / y), (r = if x < y then x else x % y)]

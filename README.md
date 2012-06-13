@@ -1,7 +1,7 @@
 # squire-behaviours
 
-These are a collection of community scripts for [Squire][], a loyal companion
-willing to follow your every command.
+These are a collection of community behaviours for [Squire][], a loyal
+companion willing to follow your every command.
 
 ## Installing
 

@@ -1,9 +1,11 @@
-# Roll dice with your Squire.
+# Description:
+#   Roll dice with your Squire.
 #
-# roll die - Rolls a six-sided die
-# roll <x> - Rolls x number of dice
-# roll <x>-sided die - Rolls a die with x number of sides
-# roll <x> <y>-sided dice - Rolls x number of dice with y number of sides
+# Commands:
+#   roll die - Rolls a six-sided die
+#   roll <x> dice - Rolls x number of dice
+#   roll <x>-sided die - Rolls a die with x number of sides
+#   roll <x> <y>-sided dice - Rolls x number of dice with y number of sides
 
 module.exports = (squire) ->
 

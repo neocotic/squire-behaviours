@@ -1,12 +1,14 @@
-# Sets up hooks to persist the brain into a file.
+# Description:
+#   Sets up hooks to persist the brain into a file.
 
 Fs   = require 'fs'
 Path = require 'path'
 
 module.exports = (squire) ->
 
-  PATH = process.env.SQUIRE_BRAIN_PATH or '/var/squire'
-  PATH = Path.join PATH, 'brain-dump.json'
+  PATH   = process.env.SQUIRE_BRAIN_PATH
+  PATH or= Path.resolve process.env.HOME, 'squire'
+  PATH   = Path.join PATH, 'brain-dump.json'
 
   try
     memories = Fs.readFileSync PATH, 'utf-8'

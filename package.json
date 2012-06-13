@@ -13,9 +13,6 @@
         "type": "MIT"
       , "url": "https://github.com/neocotic/squire-behaviours/raw/master/LICENSE.md"
     }]
-  , "dependencies": {
-        "squire": ">=0.0.1"
-      , "optparse": "1.0.3"
-    }
+  , "dependencies": {"squire": ">=0.0.1"}
   , "directories": {"lib": "./src"}
 }

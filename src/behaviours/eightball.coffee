@@ -1,6 +1,8 @@
-# Ask your Squire's Magic 8-Ball a question.
+# Description:
+#   Luckily, a Squire never leaves home without their magic eightball.
 #
-# ask magic eightball <question> - Ask the magic 8-ball a question
+# Commands:
+#   ask magic eightball <question> - Ask the magic 8-ball a question
 
 module.exports = (squire) ->
 
@@ -31,5 +33,5 @@ module.exports = (squire) ->
       (ask \s+ (the \s+)?)?
       (magic \s+)?
       (8 | eight) (- | \s*)
-    ball \s* (.*)? $ ///i, (msg) ->
+    ball \s+ (.+) $ ///i, (msg) ->
     msg.reply msg.random ANSWERS

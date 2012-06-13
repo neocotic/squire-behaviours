@@ -1,8 +1,8 @@
-# Sets up hooks to persist the brain into redis.
+# Description:
+#   Sets up hooks to persist the brain into redis.
 #
 # Dependencies:
-#
-#   redis - >= 0.6
+#   redis >= 0.6
 
 Redis = require 'redis'
 Url   = require 'url'
@@ -17,7 +17,7 @@ module.exports = (squire) ->
   client.on 'error', (err) ->
     squire.logger.error err
 
-  client.on 'ready', ->
+  client.on 'connect', ->
     squire.logger.info 'Successfully connected to Redis'
 
     client.get 'squire:memory', (err, reply) ->

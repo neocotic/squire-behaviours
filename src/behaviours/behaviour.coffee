@@ -1,33 +1,29 @@
-# Load behaviours from the squire behaviours directory on the fly for testing
-# purposes.
+# Description:
+#   Load behaviours from the squire behaviours directory on the fly for testing
+#   purposes.
 #
-# add <name> behaviour - Adds the named behaviour
-# help for <name> behaviour - Gives help for the named behaviour
-# show behaviours - Gives names of all availiable behaviours
-#
-# Examples:
-#
-#   add coin behaviour
-#   > flip a coin - Gives you heads or tails
-#
-#   help for coin behaviour
-#   > flip a coin - Gives you heads or tails
-#
-#   show behaviours
-#   > behaviour
-#     brain-file
-#     brain-redis
-#     ...
-#     dice
-#     eightball
-#     fibonacci
-#
-# Note:
-#
+# Commands:
+#   add <name> behaviour - Adds the named behaviour
+#   show behaviours - Gives names of all availiable behaviours
+
+# Notes:
 #   1. Any behaviours that are added will be lost when the squire is
 #      re-summoned unless you define then in `squire-behaviours.json`.
 #   2. If this behaviours is enabled ANYBODY will be able to load behaviours,
 #      you may not want to leave this behaviours enabled.
+#
+# Examples:
+#   Squire> add coin behaviour
+#   flip a coin - Gives you heads or tails
+#
+#   Squire> show behaviours
+#   behaviour
+#   brain-file
+#   coin
+#   ...
+#   dice
+#   eightball
+#   fibonacci
 
 Fs   = require 'fs'
 Path = require 'path'
@@ -35,7 +31,6 @@ Path = require 'path'
 module.exports = (squire) ->
 
   PATHS = ['node_modules', 'squire-behaviours', 'src', 'behaviours']
-  WORDS = ['for', 'on', 'with']
 
   printHelp = (behaviour, msg) ->
     path = Path.resolve PATHS...
@@ -71,14 +66,3 @@ module.exports = (squire) ->
       behaviours = (Path.basename file, Path.extname file for file in files)
 
       msg.reply behaviours.join '\n'
-
-  squire.hear /// ^ (
-        ((i \s+)? need \s+)?
-        help
-        (\s+ me)? (\s+ (#{WORDS.join '|'}))?
-      | what(\'?s | \s+ is)
-      | what \s+ does
-    ) (\s+ the)? \s+ (.+) \s+ behaviour (\s+ do)? \?? $ ///i, (msg) ->
-    behaviour = msg.match[9].trim()
-    if behaviour.toLowerCase() not in WORDS.concat 'the'
-      printHelp behaviour, msg

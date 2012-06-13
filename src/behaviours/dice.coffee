@@ -1,5 +1,5 @@
 # Description:
-#   Roll dice with your Squire.
+#   Roll dice with Squire.
 #
 # Commands:
 #   roll die - Rolls a six-sided die
